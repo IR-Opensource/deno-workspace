@@ -9,6 +9,12 @@ jobs:
     name: Run build
 
     steps:
+      - name: Setup PSE
+        uses: invisirisk/pse-action@latest
+        with:
+          api_url: "https://app.stage.invisirisk.com"
+          app_token: ${{ secrets.IR_API_KEY }}
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -31,3 +37,9 @@ jobs:
 
       - name: Run all tests
         run: deno task test
+
+      - name: Cleanup PSE
+        if: always()
+        uses: invisirisk/pse-action@latest
+        with:
+          cleanup: "true"
