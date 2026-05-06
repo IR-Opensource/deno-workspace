@@ -38,7 +38,10 @@ export function groupItems<T>(items: T[], keyFn: (item: T) => string): Record<st
   }, {});
 }
 
-export function sortItems<T>(items: T[], keyFn: (item: T) => string | number): T[] {
+export function sortItems<T, K extends string | number | bigint | Date>(
+  items: T[],
+  keyFn: (item: T) => K,
+): T[] {
   return sortBy(items, keyFn);
 }
 
