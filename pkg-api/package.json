@@ -1,0 +1,14 @@
+{
+  "name": "@myapp/pkg-api",
+  "version": "0.1.0",
+  "description": "API package — part of deno-workspace monorepo",
+  "dependencies": {
+    "hono": "^4.4.0",
+    "zod": "^3.23.8",
+    "pino": "^9.3.1",
+    "dotenv": "^16.4.5",
+    "jose": "^5.6.3",
+    "bcrypt": "^5.1.1",
+    "chalk": "^5.3.0"
+  }
+}

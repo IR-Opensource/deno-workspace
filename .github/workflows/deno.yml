@@ -1,0 +1,33 @@
+name: Deno Workspace build latest
+
+on:
+  workflow_dispatch:
+
+jobs:
+  DENO:
+    runs-on: ubuntu-latest
+    name: Run build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install dependencies
+        run: deno install
+
+      - name: Show installed packages (pkg-core)
+        run: deno info pkg-core/src/deps.ts
+
+      - name: Show installed packages (pkg-api)
+        run: deno info pkg-api/src/deps.ts
+
+      - name: Type check all packages
+        run: deno check pkg-core/src/*.ts pkg-api/src/*.ts
+
+      - name: Run all tests
+        run: deno task test

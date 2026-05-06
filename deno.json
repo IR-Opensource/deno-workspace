@@ -1,0 +1,12 @@
+{
+  "workspace": ["./pkg-core", "./pkg-api"],
+  "tasks": {
+    "test": "deno test --allow-net --allow-read --allow-env pkg-core/tests/ pkg-api/tests/",
+    "check": "deno check pkg-core/src/*.ts pkg-api/src/*.ts",
+    "cache": "deno cache pkg-core/src/deps.ts pkg-api/src/deps.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.0",
+    "@std/fmt": "jsr:@std/fmt@^1.0.0"
+  }
+}
