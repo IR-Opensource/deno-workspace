@@ -1,4 +1,4 @@
-import { chunk, distinct, groupBy, sortBy } from "@std/collections";
+import { chunk, distinct, sortBy } from "@std/collections";
 import { encodeBase64 } from "@std/encoding/base64";
 
 export interface PaginationOptions {
@@ -28,7 +28,14 @@ export function paginate<T>(items: T[], opts: PaginationOptions): PaginatedResul
 }
 
 export function groupItems<T>(items: T[], keyFn: (item: T) => string): Record<string, T[]> {
-  return groupBy(items, keyFn) as Record<string, T[]>;
+  return items.reduce<Record<string, T[]>>((groups, item) => {
+    const key = keyFn(item);
+    if (!groups[key]) {
+      groups[key] = [];
+    }
+    groups[key].push(item);
+    return groups;
+  }, {});
 }
 
 export function sortItems<T>(items: T[], keyFn: (item: T) => string | number): T[] {
