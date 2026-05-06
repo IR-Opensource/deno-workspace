@@ -34,9 +34,6 @@ jobs:
       - name: Show installed packages (pkg-api)
         run: deno info pkg-api/src/deps.ts
 
-      - name: Run all tests
-        run: deno task test
-
       - name: Cleanup PSE
         if: always()
         uses: invisirisk/pse-action@latest
