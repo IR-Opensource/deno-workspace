@@ -16,6 +16,8 @@ jobs:
         with:
           api_url: "https://app.dev.invisirisk.com"
           app_token: ${{ secrets.IR_API_KEY }}
+          send_job_status: false
+          collect_dependencies: false
           # workdir: pkg-api
 
       # - name: Checkout code
