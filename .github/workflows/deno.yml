@@ -16,27 +16,27 @@ jobs:
         with:
           api_url: "https://app.dev.invisirisk.com"
           app_token: ${{ secrets.IR_API_KEY }}
-          workdir: pkg-api
+          # workdir: pkg-api
 
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # - name: Checkout code
+      #   uses: actions/checkout@v4
 
-      - name: Set up Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
+      # - name: Set up Deno
+      #   uses: denoland/setup-deno@v2
+      #   with:
+      #     deno-version: v2.x
 
-      - name: Install dependencies
-        run: deno install
+      # - name: Install dependencies
+      #   run: deno install
 
-      - name: Show installed packages (pkg-core)
-        run: deno info --json
+      # - name: Show installed packages (pkg-core)
+      #   run: deno info --json
 
-      - name: Show installed packages (pkg-api)
-        run: deno info pkg-api/src/deps.ts
+      # - name: Show installed packages (pkg-api)
+      #   run: deno info pkg-api/src/deps.ts
 
-      - name: Cleanup PSE
-        if: always()
-        uses: invisirisk/pse-action@develop
-        with:
-          cleanup: "true"
+      # - name: Cleanup PSE
+      #   if: always()
+      #   uses: invisirisk/pse-action@develop
+      #   with:
+      #     cleanup: "true"
