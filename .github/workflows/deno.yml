@@ -20,25 +20,13 @@ jobs:
           collect_dependencies: false
           # workdir: pkg-api
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      # - name: Set up Deno
-      #   uses: denoland/setup-deno@v2
-      #   with:
-      #     deno-version: v2.x
+      - name: Set up Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
 
-      # - name: Install dependencies
-      #   run: deno install
-
-      # - name: Show installed packages (pkg-core)
-      #   run: deno info --json
-
-      # - name: Show installed packages (pkg-api)
-      #   run: deno info pkg-api/src/deps.ts
-
-      # - name: Cleanup PSE
-      #   if: always()
-      #   uses: invisirisk/pse-action@develop
-      #   with:
-      #     cleanup: "true"
+      - name: Install dependencies
+        run: deno install
