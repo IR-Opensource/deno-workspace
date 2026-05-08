@@ -29,7 +29,7 @@ jobs:
         run: deno install
 
       - name: Show installed packages (pkg-core)
-        run: deno info pkg-core/src/deps.ts
+        run: deno info --json
 
       - name: Show installed packages (pkg-api)
         run: deno info pkg-api/src/deps.ts
