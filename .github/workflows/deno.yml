@@ -2,6 +2,12 @@ name: Deno Workspace build latest
 
 on:
   workflow_dispatch:
+  
+permissions:
+  checks: write
+  contents: write
+  packages: read
+  actions: write
 
 jobs:
   DENO:
@@ -16,9 +22,8 @@ jobs:
         with:
           api_url: "https://app.dev.invisirisk.com"
           app_token: ${{ secrets.IR_API_KEY }}
-          send_job_status: false
-          collect_dependencies: false
           # workdir: pkg-api
+          debug: true
       - name: Secret Leak Policy
         run: |
           curl -k -X GET https://vbirmock.free.beeceptor.com/hack \
