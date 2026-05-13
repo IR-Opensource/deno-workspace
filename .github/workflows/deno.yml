@@ -7,8 +7,6 @@ jobs:
   DENO:
     runs-on: ubuntu-latest
     name: Run build
-    env:
-      DENO_TLS_CA_STORE: system
 
     steps:
       - name: Setup PSE
