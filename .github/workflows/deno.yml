@@ -17,7 +17,7 @@ jobs:
         with:
           api_url: "https://app.dev.invisirisk.com"
           app_token: ${{secrets.IR_API_KEY_DEV}}
-          collect_dependencies: false
+          # collect_dependencies: false
       # ============= InvisiRisk Setup End =============
       - name: Checkout code
         uses: actions/checkout@v4
