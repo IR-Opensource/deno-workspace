@@ -2,6 +2,7 @@ name: Deno Workspace build latest
 
 on:
   workflow_dispatch:
+  push:
 permissions: write-all
 
 jobs:
